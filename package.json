@@ -1,0 +1,19 @@
+{
+  "name": "simple_api",
+  "version": "1.0.0",
+  "description": "Simple GET and POST API",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "author": "Jennifer Salas <jvsalas@ucdavis.edu> (https://jennifersalas.me/)",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongodb": "^3.0.10"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}

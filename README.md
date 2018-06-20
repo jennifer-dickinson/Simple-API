@@ -22,7 +22,7 @@ To run the API:
 
     npm start
 
-Check the program is running by submitting a `GET` request to `localhost:8000/`. 
+curl -X GET "localhost:8000/data"Check the program is running by submitting a `GET` request to `localhost:8000/`. 
 
     curl -X GET "localhost:8000/"
 
@@ -32,7 +32,7 @@ Sample `POST` request (requires `data` field)
 
 Sample `GET` request
 
-    curl -X GET "localhost:8000/data"
+    
 
 ## Week 2
 ### Date: June 19, 2018

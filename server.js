@@ -1,6 +1,26 @@
-const express = require('express');
-const MongoClient = require('mongodb').MongoClient;
-const bodyParser = require('body-parser');
+const express       = require('express');
+const MongoClient   = require('mongodb').MongoClient;
+const bodyParser    = require('body-parser');
+
+/*  The following was implemented in week 2
+    using: https://www.youtube.com/watch?v=Z1ktxiqyiLA
+*/
+const cookieParser      = require('cookie-parser');
+const exphbs            = require('express-handlebars');
+const expressValidator  = require('express-validator');
+const flash             = require('connect-flash');
+const passport          = require('passport');
+const LocalStrategy     = require('passport-local').Strategy;
+// End week 2 implementation
+
+/*  The following was implemented to support postgresql
+    using https://expressjs.com/en/guide/database-integration.html#postgresql
+*/
+const pgp   = require('pg-promise')
+// var db      = pgp('postgres:')
+
+
+
 
 const app = express();
 

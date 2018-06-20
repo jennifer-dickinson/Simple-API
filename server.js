@@ -16,8 +16,14 @@ const LocalStrategy     = require('passport-local').Strategy;
 /*  The following was implemented to support postgresql
     using https://expressjs.com/en/guide/database-integration.html#postgresql
 */
-const pgp   = require('pg-promise')
-// var db      = pgp('postgres:')
+const pgp   = require('pg-promise');
+const dbproperties = {
+    host: 'localhost',
+    port: 5432,
+    user: 'hacker',
+    password: 'hackerbay',
+}
+var db      = pgp(dbproperties);
 
 
 

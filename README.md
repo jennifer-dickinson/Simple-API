@@ -24,15 +24,23 @@ To run the API:
 
 Check the program is running by submitting a `GET` request to `localhost:8000/`. 
 
-    curl -X GET "localhost:8000/"
+    curl -X GET \
+        http://localhost:8000 \
+        -H 'Cache-Control: no-cache'
 
 Sample `POST` request (requires `data` field)
 
-    curl -X POST -H "Content-Type: application/x-www-form-urlencoded"  -d "data=Any+String" "localhost:8000/data"
+    curl -X POST \
+        http://localhost:8000/data \
+        -H 'Cache-Control: no-cache' \
+        -H 'Content-Type: application/x-www-form-urlencoded' \
+        -d data=Any%20String
 
 Sample `GET` request
 
-    curl -X GET "localhost:8000/data"
+curl -X GET \
+        http://localhost:8000/data \
+        -H 'Cache-Control: no-cache'
 
 ## Week 2
 ### Date: June 19, 2018

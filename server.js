@@ -85,7 +85,3 @@ app.set('view engine', 'handlebars');
 
 
 require('./app/routes')(app, db);
-
-db.any('SELECT * FROM product').then(
-    eh => {console.log(eh);}
-)

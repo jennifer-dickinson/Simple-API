@@ -46,7 +46,7 @@ app.use(session({
 }));
 
 // Passport init
-app.use(passport.initialize());
+app.use(passport.initialize()); 
 app.use(passport.session());
 
 // Express Validator
@@ -78,20 +78,13 @@ app.use(function (req, res, next) {
     next();
 });
 
-
-
-routes = require('./app/routes');
-users = require('./app/routes/users');
-
-app.use('/', routes);
-app.use('/users', users);
-
- 
 // View engine
-// app.set('views', path.join(__dirname, 'views'));
-// app.engine('handlebars', exphbs({defaultLayout: 'layout'}));
-// app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', exphbs({defaultLayout: 'layout'}));
+app.set('view engine', 'handlebars');
 
+
+require('./app/routes')(app, db);
 
 db.any('SELECT * FROM product').then(
     eh => {console.log(eh);}

@@ -38,7 +38,7 @@ Sample `POST` request (requires `data` field)
 
 Sample `GET` request
 
-curl -X GET \
+    curl -X GET \
         http://localhost:8000/data \
         -H 'Cache-Control: no-cache'
 

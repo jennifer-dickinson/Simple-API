@@ -1,3 +1,5 @@
+var User = require('../models/user');
+
 function checkUniqueUser(email, db) {
     return db.any("SELECT email FROM users WHERE email = ${e}", {e: email})
     .then( result => {
@@ -11,8 +13,8 @@ function signup(req, res, db) {
     .then( isUnique => {
         console.log(isUnique);
         //Validate email
-        // req.checkBody('email', 'Email is required').notEmpty();
-        // req.checkBody('email', 'Email is not valid').isEmail();
+        req.checkBody('email', 'Email is required').notEmpty();
+        req.checkBody('email', 'Email is not valid').isEmail();
         req.checkBody('email', 'User already exists').custom(() => {return isUnique});
 
         //Validate password
@@ -24,8 +26,12 @@ function signup(req, res, db) {
             res.status(400).send('{ error: ' + JSON.stringify(errors[0].msg) + ' }');
         }
         else {
-            res.status(200).send('{ msg: "Valid part signup needs to be implemented" }');
-            // res.status(200).send('{session: <token> }\n');
+            var newUser = new User({
+                email: req.body['email'],
+                password: req.body['password']
+            });
+            newUser.save();
+            res.status(200).send('{ msg: ' + JSON.stringify(newUser.toObject()) + ' }');
         }
     });
 }
